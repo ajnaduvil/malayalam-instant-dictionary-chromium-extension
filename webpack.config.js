@@ -14,8 +14,25 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: 'public' }
+        { from: 'public' },
+        { from: 'icons', to: 'icons' }, // Ensure icons are copied from img to dist/icons
       ],
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: 'icons/', // Ensure icons are output to the correct folder
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
