@@ -1,0 +1,14 @@
+{
+  "name": "olam-chromium-extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

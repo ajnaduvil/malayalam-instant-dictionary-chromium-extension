@@ -1,0 +1,23 @@
+{
+  "manifest_version": 4,
+  "name": "Malayalam Instant Dictionary",
+  "version": "1.0",
+  "description": "Look up Malayalam definitions by double-clicking words",
+  "permissions": [
+    "activeTab",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": { 
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"] 
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
