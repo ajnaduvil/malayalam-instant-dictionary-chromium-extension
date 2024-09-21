@@ -20,8 +20,8 @@ function showPopup(x, y, definitions, word) {
     left: `${x}px`,
     top: `${y}px`,
     backgroundColor: '#2a2a2a', // Dark background
-    border: '1px solid #444444',
-    borderRadius: '8px',
+    border: '2px solid #5c5c5c',
+    borderRadius: '4px',
     padding: '10px', // Reduced padding
     zIndex: '9999',
     maxWidth: '220px', // Smaller width
@@ -38,14 +38,14 @@ function showPopup(x, y, definitions, word) {
   // Custom scrollbar styles
   const scrollbarStyles = `
     #olam-popup::-webkit-scrollbar {
-      width: 2px; // Smaller scrollbar width
+      width: 3px; // Smaller scrollbar width
     }
     #olam-popup::-webkit-scrollbar-thumb {
       background-color: rgba(140, 200, 255, 0.5); // Tint of main theme color
       border-radius: 4px;
     }
     #olam-popup::-webkit-scrollbar-track {
-      background: #333333; // Dark track
+      background: #33333300; // Dark track
     }
   `;
 
@@ -82,7 +82,7 @@ function showPopup(x, y, definitions, word) {
   `).join('');
 
   const closeButton = `
-    <button style="position: absolute; right: 5px; top: 5px; background: none; border: none; font-size: 16px; cursor: pointer; color: rgba(140, 199, 255, 0.85); padding: 2px;" onclick="this.parentElement.remove();">✖</button>
+    <button id="olam-close-button" style="position: absolute; right: 5px; top: 5px; background: none; border: none; font-size: 16px; cursor: pointer; color: rgba(140, 199, 255, 0.85); padding: 2px;">✖</button>
   `;
 
   const moreLink = `
@@ -91,7 +91,8 @@ function showPopup(x, y, definitions, word) {
     </p>
   `;
 
-  popup.innerHTML = closeButton + content + moreLink;
+  // popup.innerHTML = closeButton + content + moreLink;
+  popup.innerHTML = content + moreLink;
 
   document.body.appendChild(popup);
 
