@@ -1,5 +1,5 @@
 {
-  "manifest_version": 4,
+  "manifest_version": 3,
   "name": "Malayalam Instant Dictionary",
   "version": "1.0",
   "description": "Look up Malayalam definitions by double-clicking words",
