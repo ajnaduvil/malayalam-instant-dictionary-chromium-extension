@@ -4,7 +4,6 @@
   "version": "1.0",
   "description": "Look up Malayalam definitions by double-clicking words",
   "permissions": [
-    "activeTab",
     "https://*/*",
     "http://*/*"
   ],
