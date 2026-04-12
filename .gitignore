@@ -7,6 +7,11 @@ dist/
 
 # Packaged extension archives (regenerate from build)
 *.zip
+*.xpi
+
+# Package script output
+release/
+web-ext-artifacts/
 
 # Logs
 logs/
