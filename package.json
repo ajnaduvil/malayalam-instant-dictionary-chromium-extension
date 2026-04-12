@@ -10,6 +10,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "package": "node scripts/package-extension.mjs",
+    "package:firefox-listed": "node scripts/package-firefox-listed.mjs",
     "amo:sync-listing": "node scripts/sync-amo-listing.mjs",
     "amo:upload-icon": "node scripts/amo-upload-icon.mjs"
   },
