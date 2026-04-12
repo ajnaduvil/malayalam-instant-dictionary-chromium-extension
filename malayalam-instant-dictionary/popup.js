@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("olam-close-button");e&&e.addEventListener("click",(()=>{window.close()}))}));
