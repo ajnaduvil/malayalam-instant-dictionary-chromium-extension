@@ -127,7 +127,8 @@ async function main() {
     const channel = (process.env.WEB_EXT_CHANNEL || 'unlisted').trim();
     console.log(`Running web-ext sign (channel: ${channel})...`);
 
-    run('npx', [
+    const listedMetaPath = path.join(__dirname, 'amo-listed-sign-metadata.json');
+    const signArgs = [
       'web-ext',
       'sign',
       '--source-dir',
@@ -140,7 +141,12 @@ async function main() {
       apiSecret,
       '--channel',
       channel,
-    ]);
+    ];
+    if (channel === 'listed' && fs.existsSync(listedMetaPath)) {
+      signArgs.push('--amo-metadata', listedMetaPath);
+    }
+
+    run('npx', signArgs);
 
     const xpis = listFiles(signArtifactsDir).filter((f) => f.endsWith('.xpi'));
     if (xpis.length === 1) {

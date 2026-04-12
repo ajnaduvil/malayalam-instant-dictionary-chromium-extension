@@ -10,7 +10,12 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 
-const env = { ...process.env, WEB_EXT_CHANNEL: 'listed' };
+// Listed builds are reviewed by humans; do not wait for "approval" in the CLI.
+const env = {
+  ...process.env,
+  WEB_EXT_CHANNEL: 'listed',
+  WEB_EXT_APPROVAL_TIMEOUT: process.env.WEB_EXT_APPROVAL_TIMEOUT ?? '0',
+};
 const r = spawnSync('npm', ['run', 'package'], {
   cwd: root,
   stdio: 'inherit',
