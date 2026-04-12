@@ -10,7 +10,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "package": "node scripts/package-extension.mjs",
-    "amo:sync-listing": "node scripts/sync-amo-listing.mjs"
+    "amo:sync-listing": "node scripts/sync-amo-listing.mjs",
+    "amo:upload-icon": "node scripts/amo-upload-icon.mjs"
   },
   "devDependencies": {
     "archiver": "^7.0.1",

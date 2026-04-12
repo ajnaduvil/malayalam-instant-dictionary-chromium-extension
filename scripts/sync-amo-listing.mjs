@@ -5,33 +5,10 @@
  * @see https://addons-server.readthedocs.io/en/latest/topics/api/auth.html
  */
 import 'dotenv/config';
-import crypto from 'crypto';
+import { AMO_API, createAmoJwt, DEFAULT_ADDON_GUID } from './amo-auth.mjs';
 
-const AMO_API = 'https://addons.mozilla.org/api/v5';
-
-const DEFAULT_GUID = 'malayalam-instant-dictionary@extension.local';
 const DEFAULT_CHROME_URL =
   'https://chromewebstore.google.com/detail/malayalam-instant-diction/aoablanmkdmgfabgbejljmlhpnedmpci';
-
-function b64urlJson(obj) {
-  return Buffer.from(JSON.stringify(obj), 'utf8').toString('base64url');
-}
-
-function createAmoJwt(apiKey, apiSecret) {
-  const header = b64urlJson({ alg: 'HS256', typ: 'JWT' });
-  const iat = Math.floor(Date.now() / 1000);
-  const payload = b64urlJson({
-    iss: apiKey,
-    jti: crypto.randomBytes(16).toString('hex'),
-    iat,
-    exp: iat + 240,
-  });
-  const sig = crypto
-    .createHmac('sha256', apiSecret)
-    .update(`${header}.${payload}`)
-    .digest('base64url');
-  return `${header}.${payload}.${sig}`;
-}
 
 function buildDescriptionMarkdown(chromeUrl) {
   return [
@@ -56,7 +33,7 @@ async function main() {
     process.exit(1);
   }
 
-  const guid = (process.env.AMO_ADDON_GUID || DEFAULT_GUID).trim();
+  const guid = (process.env.AMO_ADDON_GUID || DEFAULT_ADDON_GUID).trim();
   const locale = (process.env.AMO_LISTING_LOCALE || 'en-US').trim();
   const chromeUrl = (process.env.AMO_CHROME_STORE_URL || DEFAULT_CHROME_URL).trim();
 
