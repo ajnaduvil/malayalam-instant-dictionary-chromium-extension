@@ -154,6 +154,10 @@ async function main() {
       const to = path.join(releaseDir, firefoxSignedName);
       fs.renameSync(from, to);
       console.log(`Firefox signed: ${to}`);
+    } else if (channel === 'listed') {
+      console.log(
+        'No signed .xpi in artifacts yet (listed versions often stay in review). Open AMO Developer Hub → Versions for status; download the signed file after approval.',
+      );
     } else {
       console.warn('Expected exactly one .xpi from web-ext sign; check', signArtifactsDir, xpis);
     }
