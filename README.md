@@ -16,6 +16,7 @@ Published builds:
 
 - [**Chrome Web Store**](https://chromewebstore.google.com/detail/malayalam-instant-diction/aoablanmkdmgfabgbejljmlhpnedmpci)
 - [**Microsoft Edge Add-ons**](https://microsoftedge.microsoft.com/addons/detail/malayalam-instant-diction/keegdlhklgpeeibhbeklehjdgpmgeame)
+- [**Firefox Add-ons**](https://addons.mozilla.org/en-US/firefox/addon/5bde4a908989418390a0/)
 
 **Firefox:** after the add-on is approved on Mozilla Add-ons (AMO), install it from your product page on [addons.mozilla.org](https://addons.mozilla.org/firefox/). Until then you can load a development build from `dist/` (see below).
 
